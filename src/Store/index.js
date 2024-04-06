@@ -2,6 +2,7 @@ import { createStore } from "redux";
 
 const INITIAL_VALUE = {
   counter: 0,
+  privacy: false,
 };
 
 const counterReducer = (store = INITIAL_VALUE, action) => {
@@ -11,6 +12,8 @@ const counterReducer = (store = INITIAL_VALUE, action) => {
     return { counter: store.counter - 1 };
   } else if (action.type === "ADD") {
     return { counter: store.counter + Number(action.payload.num) };
+  } else if (action.type === "PRIVACY") {
+    return { privacy: store.privacy ? false : true };
   }
   return store;
 };
