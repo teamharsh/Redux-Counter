@@ -7,13 +7,13 @@ const INITIAL_VALUE = {
 
 const counterReducer = (store = INITIAL_VALUE, action) => {
   if (action.type === "INCREMENT") {
-    return { counter: store.counter + 1 };
+    return {...store , counter: store.counter + 1 ,};
   } else if (action.type === "DECREMENT") {
-    return { counter: store.counter - 1 };
+    return {...store ,  counter: store.counter - 1 };
   } else if (action.type === "ADD") {
-    return { counter: store.counter + Number(action.payload.num) };
+    return {...store ,  counter: store.counter + Number(action.payload.num) };
   } else if (action.type === "PRIVACY") {
-    return { privacy: store.privacy ? false : true };
+    return {...store ,  privacy: store.privacy ? false : true };
   }
   return store;
 };
